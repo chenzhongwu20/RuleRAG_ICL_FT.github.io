@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="RuleRAG: Rule-guided Retrieval-Augmented Generation <br> with Language Models for Question Answering">
+  <meta name="keywords" content="RuleRAG: Rule-guided Retrieval-Augmented Generation <br> with Language Models for Question Answering">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RuleRAG</title>
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="static/css/bootstrap-4.4.1.css">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+  
+  <!-- Bulma and Font Awesome -->
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+  <link rel="icon" href="resources/image/rule.png">
+
+  <!-- jQuery and JS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+  <script src="static/js/app.js"></script>
+  <script src="static/js/video_comparison.js"></script>
+
+  <link rel="stylesheet" href="static/css/dics.original.css">
+  <script src="static/js/event_handler.js"></script>
+  <script src="static/js/dics.original.js"></script>
+  <script>
+  </script>
+
+</head>
+<body>
+
+
+
+
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title" style="margin-bottom: 0"><strong>RuleRAG: Rule-guided Retrieval-Augmented Generation <br> with Language Models for Question Answering</strong></h1>
+          <h2 class="title is-2 publication-title" style="margin-top: 0; margin-bottom: 2"></h2>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?hl=zh-CN&user=F-F_EIMAAAAJ">Zhongwu Chen</a><sup>1</sup></span>&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?hl=zh-CN&user=sIts5VgAAAAJ">Chengjin Xu</a><sup>2*</sup>
+            </span>&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?hl=zh-CN&user=zpidC7IAAAAJ">Dingmin Wang</a><sup>3*</sup></span>&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="author-block">
+              <a href="">Zhen Huang</a><sup>1</sup>
+            </span>&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="author-block">
+              <a href="">Yong Dou</a><sup>1</sup>
+            </span>&nbsp;&nbsp;&nbsp;&nbsp;
+              <span class="author-block">
+              <a href="">Jian Guo</a><sup>2</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>National University of Defense Technology</span>&nbsp;&nbsp;&nbsp;&nbsp;
+              <span class="author-block"><sup>2</sup>International Digital Economy Academy (IDEA)</span>&nbsp;&nbsp;&nbsp;&nbsp;
+              <span class="author-block"><sup>3</sup>Department of Computer Science, University of Oxford</span>&nbsp;&nbsp;&nbsp;&nbsp;
+          </div>
+            
+          <div class="is-size-6 publication-authors">
+            <span class="author-block"><sup>*</sup>Corresponding Authors</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://github.com/chenzhongwu20/RuleRAG_ICL_FT/blob/main/paper.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+
+              <span class="link-block">
+                <a href="https://github.com/chenzhongwu20/RuleRAG_ICL_FT"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+          
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/chenzhongwu20/RuleRAG_ICL_FT"
+                   class="external-link button is-normal is-rounded is-dark disabled">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="hero teaser">
+  <div class="container is-max-widescreen">
+    <div class="hero-body">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <img src="./resources/framework.png" class="center">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column ">
+        <h2 class="title is-3" style="margin-top: -30px">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+Retrieval-augmented generation (RAG) framework has shown promising potential in knowledge-intensive question answering (QA) by retrieving external corpus and generating based on augmented context. However, existing approaches only consider the query itself, neither specifying the retrieval preferences for the retrievers nor informing the generators of how to refer to the retrieved documents for the answers, which poses a signiffcant challenge to the QA performance. To address these issues, we propose Rule-Guided Retrieval-Augmented Generation with LMs, which explicitly introduces symbolic rules as demonstrations for in-context learning (RuleRAG-ICL) to guide retrievers to retrieve logically related documents in the directions of rules and uniformly guide generators to generate answers attributed by the guidance of the same set of rules. Moreover, the combination of queries and rules can be further used as supervised ffne-tuning data to update retrievers and generators (RuleRAG-FT) to achieve better rule-based instruction following capability, leading to retrieve more supportive results and generate more acceptable answers. To emphasize the attribution of rules, we construct ffve rule-aware QA benchmarks, including three temporal and two static scenarios, and equip RuleRAG with several kinds of retrievers and generators. Experiments demonstrate that training-free RuleRAG-ICL effectively improves the retrieval quality of +89.2% in Recall@10 scores and generation accuracy of +103.1% in exact match scores over standard RAG on average across the ffve benchmarks, and further ffne-tuned RuleRAG-FT consistently yields more signiffcant performance enhancement. Extensive analyses indicate that RuleRAG scales well with increasing numbers of retrieved documents and exhibits generalization ability for untrained rules.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Page Title</title>
+    <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+</head>
+<body>
+
+
+<section class="hero teaser">
+  <div class="container is-max-widescreen">
+    <div class="hero-body">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <img src="./resources/data.png" class="center">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--<section class="section">-->
+<!--  <div class="container is-max-desktop">-->
+
+<!--    &lt;!&ndash; Method. &ndash;&gt;-->
+<!--    <div class="columns is-centered has-text-centered">-->
+<!--      <div class="column is-full-width">-->
+<!--        <h2 class="title is-3" style="margin-top: -20px">Method</h2>-->
+
+<!--        <img src="./resources/image/pip.png" class="center">-->
+<!--        <div class="content has-text-justified">-->
+<!--          <p style="margin-top: 30px">-->
+<!--            <b>Pipeline of AbsGS. </b>(a) The splat-based rendering technique projects Gaussian \( G_i \) with mean position \( \mu_{i}^{3d} \) to 2D coordinate \( \mu_{i} \) in pixel-space. The number of covered pixels by Gaussian \( G_i \) is \( m \). (b) By backpropagating, the view-space gradient \( g_i \) of Gaussian \( G_i \) under viewpoint \( k \) is calculated as the sum of all view-space gradients of pixels that are covered by \( G_i \). Since the gradients \( \frac{\partial L_j}{\partial \mu_{i}} \) have different directions, the overall sum \( g_i \) will have a small scale, which does not satisfy the gradient threshold for densification. (c) Motivated by the above analysis, we redesign the densification scheme by taking the absolute value of each component \( \lvert \frac{\partial L_j}{\partial \mu_{i,x}} \rvert \) and \( \lvert \frac{\partial L_j}{\partial \mu_{i,y}} \rvert \) before summing. This enables us to identify large Gaussians in over-reconstructed regions for split.-->
+<!--          </p>-->
+<!--        </div>-->
+
+<!--      </div>-->
+<!--    </div>-->
+<!--    &lt;!&ndash;/ Animation. &ndash;&gt;-->
+
+<!--  </div>-->
+<!--</section>-->
+
+</body>
+</html>
+
+
+
+
+
+<!--<section class="section">-->
+<!--  <div class="container is-max-desktop">-->
+
+<!--    &lt;!&ndash; Results. &ndash;&gt;-->
+<!--    <div class="columns is-centered ">-->
+<!--      <div class="column is-full-width">-->
+<!--        <h2 class="title is-3 has-text-centered" style="margin-top: -30px">Results</h2>-->
+
+<!--        <h3 class="title is-4">Novel View Synthesis</h3>-->
+<!--        <div class="content has-text-justified">-->
+<!--          <p>-->
+<!--            We present the NVS results of 3D-GS, AbsGS (Ours), and Ground Truth.-->
+<!--          </p>-->
+<!--        </div>-->
+<!--        <div class="container">-->
+<!--          <ul class="nav nav-tabs nav-fill nav-justified" id="object-scale-recon">-->
+<!--              <li class="nav-item">-->
+<!--                <a class="nav-link" onclick="objectSceneEvent(0,0,'object-scale-recon')">garden</a>-->
+<!--              </li>-->
+<!--              <li class="nav-item">-->
+<!--                <a class="nav-link" onclick="objectSceneEvent(1,0,'object-scale-recon')">bonsai</a>-->
+<!--              </li>-->
+<!--              <li class="nav-item">-->
+<!--                <a class="nav-link" onclick="objectSceneEvent(2,0,'object-scale-recon')">counter</a>-->
+<!--              </li>-->
+<!--              <li class="nav-item">-->
+<!--                <a class="nav-link " onclick="objectSceneEvent(4,0,'object-scale-recon')">bicycle1</a>-->
+<!--              </li>-->
+<!--              <li class="nav-item">-->
+<!--                <a class="nav-link" onclick="objectSceneEvent(5,0,'object-scale-recon')">bicycle2</a>-->
+<!--              </li>-->
+<!--              <li class="nav-item">-->
+<!--                <a class="nav-link active" onclick="objectSceneEvent(3,0,'object-scale-recon')">flowers</a>-->
+<!--              </li>-->
+<!--              <li class="nav-item">-->
+<!--                <a class="nav-link" onclick="objectSceneEvent(6,0,'object-scale-recon')">kitchen</a>-->
+<!--              </li>-->
+<!--              <li class="nav-item">-->
+<!--                <a class="nav-link" onclick="objectSceneEvent(7,0,'object-scale-recon')">room</a>-->
+<!--              </li>-->
+<!--              <li class="nav-item">-->
+<!--                <a class="nav-link" onclick="objectSceneEvent(8,0,'object-scale-recon')">stump</a>-->
+<!--              </li>-->
+<!--              <li class="nav-item">-->
+<!--                <a class="nav-link" onclick="objectSceneEvent(9,0,'object-scale-recon')">train</a>-->
+<!--              </li>-->
+<!--              <li class="nav-item">-->
+<!--                <a class="nav-link" onclick="objectSceneEvent(10,0,'object-scale-recon')">treehill</a>-->
+<!--              </li>-->
+<!--              <li class="nav-item">-->
+<!--                <a class="nav-link" onclick="objectSceneEvent(11,0,'object-scale-recon')">truck</a>-->
+<!--              </li>-->
+<!--          </ul>-->
+<!--          <div class="b-dics" style="width: 1600px; font-weight: 400;">-->
+<!--            <img src="resources/image/flowers/3dgs.jpg" alt="3D-GS">-->
+<!--            <img src="resources/image/flowers/ours.jpg" alt="Ours">-->
+<!--            <img src="resources/image/flowers/gt.jpg" alt="GT">-->
+<!--          </div>-->
+<!--        </div>-->
+
+
+<!--        <h3 class="title is-4" style="margin-top: 60px;">Point Clouds</h3>-->
+<!--        <div class="content has-text-justified">-->
+<!--          <p>-->
+<!--            We present the point clouds by extracting mean positions of Gaussian primitives.-->
+<!--          </p>-->
+<!--        </div>-->
+<!--        <div class="container">-->
+<!--          <ul class="nav nav-tabs nav-fill nav-justified" id="object-scale-pts">-->
+
+<!--              <li class="nav-item">-->
+<!--                <a class="nav-link" onclick="objectSceneEvent(14,1,'object-scale-pts')">flowers</a>-->
+<!--              </li>-->
+<!--              <li class="nav-item">-->
+<!--                <a class="nav-link " onclick="objectSceneEvent(15,1,'object-scale-pts')">treehill</a>-->
+<!--              </li>-->
+<!--                            <li class="nav-item">-->
+<!--                 <a class="nav-link active" onclick="objectSceneEvent(12,1,'object-scale-pts')">bicycle1</a>-->
+<!--              </li>-->
+<!--              <li class="nav-item">-->
+<!--                 <a class="nav-link" onclick="objectSceneEvent(13,1,'object-scale-pts')">bicycle2</a>-->
+<!--              </li>-->
+<!--              <li class="nav-item">-->
+<!--                <a class="nav-link " onclick="objectSceneEvent(16,1,'object-scale-pts')">room</a>-->
+<!--              </li>-->
+<!--              <li class="nav-item">-->
+<!--                <a class="nav-link" onclick="objectSceneEvent(17,1,'object-scale-pts')">stump</a>-->
+<!--              </li>-->
+<!--          </ul>-->
+<!--          <div class="b-dics" style="width: 1600px; font-weight: 400;">-->
+<!--            <img src="resources/image/bicycle_pts1/3dgs.jpg" alt="3D-GS">-->
+<!--            <img src="resources/image/bicycle_pts1/ours.jpg" alt="Ours">-->
+<!--            <img src="resources/image/bicycle_pts1/gt.jpg" alt="GT">-->
+<!--          </div>-->
+<!--        </div>-->
+
+
+
+<!--        <h3 class="title is-4" style="margin-top: 60px;"> Selected Gaussian ellipsoids for densification </h3>-->
+<!--        <div class="content has-text-justified">-->
+<!--          <p>-->
+<!--            We train the treehill scene with 3D-GS using default parameters for 7000 steps;-->
+<!--            then we present selected Gaussian ellipsoids for densifcation by 3D-GS and ours, with green representing splitting and blue representing cloning.-->
+<!--            Remarkably, the number of selected Gaussians between the two methods remained comparable, 69,787 and 52,517 Gaussians for 3D-GS and our method respectively.-->
+<!--          </p>-->
+<!--        </div>-->
+<!--        <div class="container">-->
+<!--          <ul class="nav nav-tabs nav-fill nav-justified" id="object-scale-elli">-->
+<!--&lt;!&ndash;              <li class="nav-item">&ndash;&gt;-->
+<!--&lt;!&ndash;                 <a class="nav-link" onclick="objectSceneEvent(18,2,'object-scale-elli')">bicycle</a>&ndash;&gt;-->
+<!--&lt;!&ndash;              </li>&ndash;&gt;-->
+<!--&lt;!&ndash;              <li class="nav-item">&ndash;&gt;-->
+<!--&lt;!&ndash;                <a class="nav-link" onclick="objectSceneEvent(19,2,'object-scale-elli')">flowers</a>&ndash;&gt;-->
+<!--&lt;!&ndash;              </li>&ndash;&gt;-->
+<!--              <li class="nav-item">-->
+<!--                <a class="nav-link active" onclick="objectSceneEvent(20,2,'object-scale-elli')">treehill</a>-->
+<!--              </li>-->
+<!--&lt;!&ndash;              <li class="nav-item">&ndash;&gt;-->
+<!--&lt;!&ndash;                <a class="nav-link " onclick="objectSceneEvent(21,2,'object-scale-elli')">room</a>&ndash;&gt;-->
+<!--&lt;!&ndash;              </li>&ndash;&gt;-->
+<!--&lt;!&ndash;              <li class="nav-item">&ndash;&gt;-->
+<!--&lt;!&ndash;                <a class="nav-link" onclick="objectSceneEvent(22,2,'object-scale-elli')">stump</a>&ndash;&gt;-->
+<!--&lt;!&ndash;              </li>&ndash;&gt;-->
+<!--          </ul>-->
+<!--          <div class="b-dics" style="width: 1600px; font-weight: 400;">-->
+<!--            <img src="resources/image/treehill_elli/3dgs.jpg" alt="3D-GS">-->
+<!--            <img src="resources/image/treehill_elli/ours.jpg" alt="Ours">-->
+<!--            <img src="resources/image/treehill_elli/gt.jpg" alt="Rendered(3D-GS)">-->
+<!--          </div>-->
+<!--        </div>-->
+
+
+
+<!--      </div>-->
+<!--    </div>-->
+
+<!--  </div>-->
+<!--</section>-->
+
+
+<!--<section class="section" id="BibTeX">-->
+<!--  <div class="container is-max-desktop content">-->
+<!--    <h2 class="title">BibTeX</h2>-->
+<!--    <pre><code>@misc{ye2024absgs,-->
+<!--      title={AbsGS: Recovering Fine Details for 3D Gaussian Splatting},-->
+<!--      author={Zongxin Ye and Wenyu Li and Sidun Liu and Peng Qiao and Yong Dou},-->
+<!--      year={2024},-->
+<!--      eprint={2404.10484},-->
+<!--      archivePrefix={arXiv},-->
+<!--      primaryClass={cs.CV}-->
+<!--}</code></pre>-->
+<!--  </div>-->
+<!--</section>-->
+
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+            Website template credit to <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>. 
+            <!-- We also incorporated design elements from <a href="https://niujinshuchong.github.io/mip-splatting/">Mip-Splatting</a>. -->
+            <!-- The video comparison with sliding bar is from <a href="https://dorverbin.github.io/refnerf/">Ref-NeRF</a>.  -->
+            The image comparison with sliding bar is from <a href="https://research.nvidia.com/labs/dir/neuralangelo/">Neuralangelo</a>. 
+          </p>
+        </div>
+      </div>
+          <p></p>
+        </div>
+      </div>
+</footer>
+
+</body>
+</html>
